@@ -15,6 +15,7 @@ const translations = {
   ru: {
     nav_home: "Главная",
     nav_pricing: "Цены",
+    wa_msg: "Здравствуйте, я к вам обращаюсь по поводу WhatsApp агента. Можете рассказать подробнее?",
     
     hero_badge: "🚀 Настройка официального ИИ в WhatsApp",
     hero_title1: "Настроим встроенный AI",
@@ -94,6 +95,7 @@ const translations = {
   en: {
     nav_home: "Home",
     nav_pricing: "Pricing",
+    wa_msg: "Hello, I am contacting you regarding the WhatsApp AI agent. Could you tell me more about it?",
     
     hero_badge: "🚀 Official WhatsApp AI Assistant Setup",
     hero_title1: "Done-For-You WhatsApp AI",
@@ -173,6 +175,7 @@ const translations = {
   he: {
     nav_home: "ראשי",
     nav_pricing: "מסלולים",
+    wa_msg: "שלום, אני פונה אליכם בנוגע לסוכן AI בוואטסאפ. אפשר לקבל פרטים נוספים?",
     
     hero_badge: "🚀 הגדרת נציג AI רשמי בוואטסאפ",
     hero_title1: "אנחנו נגדיר עבורך את ה-AI",
@@ -352,8 +355,11 @@ const LandingView = ({ setView, t, lang, isRtl }: any) => (
           {t.hero_subtitle}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-6">
-          <button onClick={() => setView('pricing')} className="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-base shadow-[0_8px_30px_rgba(16,185,129,0.3)] hover:shadow-[0_10px_40px_rgba(16,185,129,0.4)] transition-all hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2">
+          <button onClick={() => window.open(`https://wa.me/972504834744?text=${encodeURIComponent(t.wa_msg)}`, '_blank')} className="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-base shadow-[0_8px_30px_rgba(16,185,129,0.3)] hover:shadow-[0_10px_40px_rgba(16,185,129,0.4)] transition-all hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2">
             {t.cta_primary} <ArrowRight className={`w-4 h-4 ${isRtl ? 'rotate-180' : ''}`} />
+          </button>
+          <button onClick={() => setView('pricing')} className="w-full sm:w-auto px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 rounded-full font-bold text-base shadow-sm border border-slate-200 transition-all hover:-translate-y-0.5 active:scale-95">
+            {t.nav_pricing}
           </button>
         </div>
         <div className="text-xs font-medium text-slate-500 flex items-center justify-center lg:justify-start gap-2">
@@ -462,7 +468,7 @@ const PricingView = ({ setView, t, lang, isRtl }: any) => {
             <span className="text-xl font-extrabold text-slate-500">₪</span>
             <span className="font-extrabold text-slate-900 text-3xl">{t.p_price}</span>
           </div>
-          <button onClick={() => window.location.href = 'mailto:hello@wasetup.com'} className="w-full py-3 rounded-xl font-bold text-sm transition-all flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-600/25">
+          <button onClick={() => window.open(`https://wa.me/972504834744?text=${encodeURIComponent(t.wa_msg)}`, '_blank')} className="w-full py-3 rounded-xl font-bold text-sm transition-all flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-600/25">
             {t.btn_buy}
           </button>
           
@@ -562,7 +568,7 @@ const Footer = ({ setView, t, isRtl }: any) => (
       <div className={`flex gap-6 text-sm font-medium text-slate-600 ${isRtl ? 'flex-row-reverse' : ''}`}>
         <button onClick={() => setView('landing')} className="hover:text-emerald-600 transition-colors">{t.nav_home}</button>
         <button onClick={() => setView('pricing')} className="hover:text-emerald-600 transition-colors">{t.nav_pricing}</button>
-        <a href="mailto:hello@wasetup.com" className="hover:text-emerald-600 transition-colors text-slate-500">Contact Support</a>
+        <a href={`https://wa.me/972504834744?text=${encodeURIComponent(t.wa_msg)}`} target="_blank" rel="noreferrer" className="hover:text-emerald-600 transition-colors text-slate-500">WhatsApp</a>
       </div>
 
       <div className="text-xs text-slate-400 font-medium">
