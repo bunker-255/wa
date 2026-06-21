@@ -1,0 +1,6 @@
+{
+  "name": "WA AI Setup",
+  "description": "Landing page for an agency setting up official WhatsApp Business AI bots for clients.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
